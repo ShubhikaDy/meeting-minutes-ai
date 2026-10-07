@@ -1,0 +1,32 @@
+Weekly Product Sync - 7 October 2026
+Attendees: Raj (Product Manager), Priya (Engineering Lead), Ananya (Designer), Karan (Marketing)
+
+Raj: Good morning everyone. Let's start with the app launch. We are targeting the 25th of October. Priya, where are we on the build?
+
+Priya: The core features are done, but the payment module is still buggy. I think we need until the 18th to fix it and finish testing.
+
+Raj: That works. So we are keeping the 25th as the launch date. Ananya, how is the new onboarding design?
+
+Ananya: The first version is ready. I'm worried that five screens is too long for new users. I'd like to cut it to three.
+
+Raj: Agreed, let's go with three screens. Ananya, please send the final designs to Priya by this Friday.
+
+Ananya: Sure, I'll do that.
+
+Karan: On the marketing side, I need a launch video. We have no budget for an agency, so I suggest making it in-house.
+
+Raj: Okay, we'll make the video in-house. Karan, can you prepare a script draft by next Wednesday? It's important because the video has to be ready before launch.
+
+Karan: Yes, I'll share the script by Wednesday.
+
+Priya: One more thing. Our server costs went up last month and nobody has looked into why. Someone should investigate.
+
+Raj: Good point. We don't have time to assign it today, so let's keep it open for now.
+
+Priya: Also, I'll fix the payment bug and send the test report to everyone by the 18th.
+
+Raj: Great. Let's also plan a quick check-in on the 15th to see how things look. Karan, you can set up the invite.
+
+Karan: Will do.
+
+Raj: Alright, that's everything. Thanks, team.

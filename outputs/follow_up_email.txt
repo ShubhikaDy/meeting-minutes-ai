@@ -1,0 +1,25 @@
+Subject: Follow-up: Weekly Product Sync
+
+Dear Team,
+
+We met today to align on the upcoming product launch and address outstanding development tasks. We confirmed the launch date for October 25th and finalized key design and marketing strategy decisions.
+
+Decisions:
+- Launch date set for October 25th
+- Reduce onboarding design to three screens
+- Produce the launch video in-house
+
+Action Items:
+- Send final onboarding designs to Priya (Ananya, Friday)
+- Prepare a launch video script draft (Karan, Wednesday)
+- Fix payment bug and send test report to the team (Priya, 18th)
+- Set up a check-in meeting invite for the 15th (Karan)
+
+Still open:
+- Investigate the increase in server costs
+
+Thank you for your hard work and focus on these deliverables.
+
+Best regards,
+
+Meeting Assistant

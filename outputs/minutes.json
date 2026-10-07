@@ -1,0 +1,68 @@
+{
+  "summary": {
+    "title": "Weekly Product Sync",
+    "participants": [
+      "Raj",
+      "Priya",
+      "Ananya",
+      "Karan"
+    ],
+    "summary": "The team confirmed the app launch date for October 25th, despite ongoing issues with the payment module. Engineering will finalize the payment module by October 18th, while design will streamline the onboarding process to three screens. Marketing will produce an in-house launch video, with a script draft due next Wednesday. The team also agreed to hold a follow-up check-in on October 15th to monitor progress.",
+    "key_topics": [
+      "App launch timeline",
+      "Payment module development",
+      "Onboarding design refinement",
+      "In-house marketing video",
+      "Server cost investigation"
+    ]
+  },
+  "extraction": {
+    "decisions": [
+      {
+        "decision": "Launch date set for October 25th",
+        "context": "The team confirmed the timeline after accounting for the payment module fix"
+      },
+      {
+        "decision": "Reduce onboarding design to three screens",
+        "context": "The team agreed five screens was too long for new users"
+      },
+      {
+        "decision": "Produce the launch video in-house",
+        "context": "There is no budget available for an external agency"
+      }
+    ],
+    "action_items": [
+      {
+        "task": "Send final onboarding designs to Priya",
+        "owner": "Ananya",
+        "deadline": "Friday",
+        "priority": "Medium"
+      },
+      {
+        "task": "Prepare a launch video script draft",
+        "owner": "Karan",
+        "deadline": "Wednesday",
+        "priority": "High"
+      },
+      {
+        "task": "Fix payment bug and send test report to the team",
+        "owner": "Priya",
+        "deadline": "18th",
+        "priority": "High"
+      },
+      {
+        "task": "Set up a check-in meeting invite for the 15th",
+        "owner": "Karan",
+        "deadline": "Not specified",
+        "priority": "Medium"
+      }
+    ],
+    "open_items": [
+      {
+        "issue": "Investigate the increase in server costs",
+        "reason": "The team did not have time to assign this task during the meeting"
+      }
+    ]
+  },
+  "email": "Subject: Follow-up: Weekly Product Sync\n\nDear Team,\n\nWe met today to align on the upcoming product launch and address outstanding development tasks. We confirmed the launch date for October 25th and finalized key design and marketing strategy decisions.\n\nDecisions:\n- Launch date set for October 25th\n- Reduce onboarding design to three screens\n- Produce the launch video in-house\n\nAction Items:\n- Send final onboarding designs to Priya (Ananya, Friday)\n- Prepare a launch video script draft (Karan, Wednesday)\n- Fix payment bug and send test report to the team (Priya, 18th)\n- Set up a check-in meeting invite for the 15th (Karan)\n\nStill open:\n- Investigate the increase in server costs\n\nThank you for your hard work and focus on these deliverables.\n\nBest regards,\n\nMeeting Assistant"
+}

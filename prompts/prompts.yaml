@@ -1,0 +1,108 @@
+# =====================================================
+# Prompt file for the Meeting Minutes Generator
+# Placeholders like {transcript} are filled in by the code.
+# =====================================================
+
+system_prompt: |
+  You are an expert meeting analyst and executive assistant.
+  You read raw meeting transcripts and produce accurate, concise, professional output.
+  Rules you always follow:
+  - Use ONLY information present in the transcript. Never invent facts, names, or dates.
+  - If something is not stated, write "Not specified" (or "Unassigned" for owners).
+  - Keep the wording concise and neutral.
+  - When asked for JSON, return ONLY valid JSON with no extra text and no markdown fences.
+
+# ---------- STEP 1: Summary ----------
+summary_prompt: |
+  Read the meeting transcript below and produce a summary.
+
+  Return ONLY a JSON object with exactly this structure:
+  {
+    "title": "short descriptive meeting title",
+    "participants": ["name1", "name2"],
+    "summary": "3-5 sentence overview of what was discussed and concluded",
+    "key_topics": ["topic 1", "topic 2", "topic 3"]
+  }
+
+  Constraints:
+  - "summary" must be 3 to 5 sentences.
+  - "key_topics" must contain 3 to 6 short items.
+  - List only people who actually speak or are mentioned as attending.
+
+  TRANSCRIPT:
+  {transcript}
+
+# ---------- STEP 2: Decisions, action items and open items ----------
+extraction_prompt: |
+  Extract all decisions, action items and open items from the meeting transcript below.
+
+  Definitions:
+  - A DECISION is something the group explicitly agreed or concluded.
+  - An ACTION ITEM is a task that someone committed to doing, or was clearly asked to do and accepted.
+  - An OPEN ITEM is an issue or question raised in the meeting that nobody resolved or took ownership of.
+
+  Return ONLY a JSON object with exactly this structure:
+  {
+    "decisions": [
+      {"decision": "what was decided", "context": "one short line of why or background"}
+    ],
+    "action_items": [
+      {"task": "what must be done", "owner": "person responsible", "deadline": "due date or time", "priority": "High | Medium | Low"}
+    ],
+    "open_items": [
+      {"issue": "unresolved issue or question", "reason": "why it is still open"}
+    ]
+  }
+
+  Rules:
+  - "owner": use the person's name. If nobody is clearly responsible, use "Unassigned".
+  - "deadline": copy the deadline as stated (e.g. "Friday", "end of month"). If none, use "Not specified".
+  - "priority": High if urgent or blocking, Low if optional, otherwise Medium.
+  - Do not turn casual suggestions or open questions into decisions.
+  - Anything raised but left unresolved or unassigned goes in "open_items", never in "decisions" or "action_items".
+  - If there are none, return an empty list [] for that field.
+
+  EXAMPLE
+  Transcript excerpt:
+  "Raj: Let's go with vendor B, their price is better. Priya, can you send them the contract by Thursday? That's urgent, we launch next week. Priya: Also, nobody has checked why our hosting bill went up. Raj: Let's leave that for now."
+  Correct output:
+  {
+    "decisions": [
+      {"decision": "Choose vendor B", "context": "Their price is better"}
+    ],
+    "action_items": [
+      {"task": "Send the contract to vendor B", "owner": "Priya", "deadline": "Thursday", "priority": "High"}
+    ],
+    "open_items": [
+      {"issue": "Find out why the hosting bill went up", "reason": "Nobody was assigned to investigate"}
+    ]
+  }
+
+  TRANSCRIPT:
+  {transcript}
+
+# ---------- STEP 3: Follow-up email ----------
+email_prompt: |
+  Write a follow-up email to all meeting participants using the meeting data below.
+
+  Tone: {tone}
+  Sender name: {sender_name}
+
+  Requirements:
+  - Start with a line "Subject: ..." then a blank line, then the email body.
+  - Greet the participants, then give a 2-3 sentence recap of the meeting.
+  - List the decisions as short bullet points.
+  - List the action items as short bullet points in the form: task (owner, due deadline).
+  - Copy each owner and deadline exactly as given in the data. Never swap them.
+  - If a deadline is "Not specified", write only the owner, for example: task (owner).
+  - If there are open items, add a short "Still open:" list after the action items.
+  - End with a polite closing and the sender name.
+  - Keep the whole email under 220 words.
+  - Output plain text only.
+
+  MEETING TITLE: {title}
+  PARTICIPANTS: {participants}
+  SUMMARY: {summary}
+  DECISIONS: {decisions}
+  ACTION ITEMS: {action_items}
+  OPEN ITEMS: {open_items}
